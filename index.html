@@ -1,0 +1,865 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yummy Cakes — Made for your moments</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,800;1,700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; color: #1e1028; }
+        .font-serif-display { font-family: 'Playfair Display', serif; }
+        .hero-gradient { background: linear-gradient(135deg, #2d0b42 0%, #4b156e 55%, #5c1b85 100%); }
+        .contact-gradient { background: linear-gradient(135deg, #2a0a3d 0%, #471269 100%); }
+        .tab-active { background-color: #8d02ff; color: white; }
+        .tab-inactive { background-color: #ffffff; color: #475569; }
+        .tab-inactive:hover { background-color: #fce7f3; color: #a505f5; }
+    </style>
+</head>
+<body class="bg-white min-h-screen flex flex-col">
+
+    <!-- ==================== STOREFRONT VIEW ==================== -->
+    <div id="storefrontView" class="flex-grow flex flex-col">
+        
+        <!-- Top White Navbar -->
+        <header class="bg-white sticky top-0 z-40 border-b border-slate-100 px-6 md:px-12 py-4 flex justify-between items-center shadow-sm">
+            <a href="#" class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-full bg-[#360d4f] text-[#f5b014] flex items-center justify-center text-lg shadow-sm">
+                    <i class="fas fa-birthday-cake"></i>
+                </div>
+                <div>
+                    <h1 class="font-serif-display font-bold text-xl text-[#360d4f] leading-none">Yummy Cakes</h1>
+                    <p class="text-[11px] text-slate-500 italic mt-0.5">Made for your moments</p>
+                </div>
+            </a>
+
+            <nav class="hidden md:flex items-center gap-8 text-sm font-semibold text-slate-700">
+                <a href="#" class="text-[#360d4f] font-bold">Home</a>
+                <a href="#cakes-section" class="hover:text-[#360d4f] transition">Our Cakes</a>
+                <a href="#why-us" class="hover:text-[#360d4f] transition">Why Choose Us</a>
+                <a href="#contact" class="hover:text-[#360d4f] transition">Contact</a>
+            </nav>
+
+            <div class="flex items-center gap-3">
+                <button onclick="openAccountModal()" class="flex items-center gap-2 border border-slate-200 hover:border-[#360d4f] text-slate-800 px-4 py-2 rounded-full text-sm font-semibold transition">
+                    <i class="far fa-user"></i> <span>Account</span>
+                </button>
+                <a href="#cakes-section" class="bg-[#f5b014] hover:bg-[#e09f0c] text-[#2d0b42] px-5 py-2 rounded-full font-bold text-sm transition shadow-sm">
+                    Order Now
+                </a>
+            </div>
+        </header>
+
+        <!-- Offer Banner -->
+        <div id="offerBanner" class="hidden bg-[#f5b014] text-[#2d0b42] text-center py-2 px-4 text-xs font-extrabold tracking-wide">
+            <i class="fas fa-gift mr-1"></i> <span id="offerBannerText"></span>
+        </div>
+
+        <!-- Hero Section -->
+        <section class="hero-gradient text-white py-16 md:py-24 px-6 md:px-12">
+            <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <div class="lg:col-span-7 space-y-6">
+                    <div class="inline-flex items-center gap-2 bg-white/10 border border-white/15 px-4 py-1.5 rounded-full text-xs font-bold tracking-wider text-[#f5b014]">
+                        <span class="w-2 h-2 rounded-full bg-[#f5b014]"></span> 100% FRESHLY BAKED DAILY
+                    </div>
+                    <h2 class="font-serif-display text-4xl md:text-6xl font-extrabold leading-[1.12]">
+                        Yummy Cakes — <br>
+                        <span class="text-[#f5b014] italic">Freshly Baked Happiness</span> <br>
+                        Made for Your Moments
+                    </h2>
+                    <p class="text-purple-100/90 text-base md:text-lg leading-relaxed max-w-xl">
+                        Celebrate every birthday, anniversary, and sweet craving with handcrafted artisanal dream cakes and timeless classics. Baked fresh to order with premium Belgian chocolate, roasted nuts, and pure cream.
+                    </p>
+                    <div class="flex flex-wrap gap-4 pt-2">
+                        <a href="#cakes-section" class="bg-[#f5b014] hover:bg-[#e09f0c] text-[#2d0b42] font-bold px-7 py-3.5 rounded-full transition flex items-center gap-2 shadow-lg text-sm">
+                            Explore Our Cakes <i class="fas fa-arrow-down text-xs"></i>
+                        </a>
+                        <a href="#contact" class="bg-white/10 hover:bg-white/20 border border-white/20 text-white font-semibold px-7 py-3.5 rounded-full transition text-sm">
+                            Custom Event Orders
+                        </a>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-5 flex justify-center">
+                    <div class="relative rounded-3xl border-2 border-[#f5b014]/60 overflow-hidden shadow-2xl max-w-md w-full bg-[#240836]">
+                        <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=800&q=85" alt="Pistachio Kunafa Dream Cake" class="w-full h-[360px] object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-[#1a0526] via-[#1a0526]/40 to-transparent flex flex-col justify-end p-6">
+                            <span class="bg-[#f5b014] text-[#2d0b42] text-[10px] font-extrabold px-3 py-1 rounded-full w-fit uppercase tracking-wider mb-2">
+                                Yummy Special Bestseller
+                            </span>
+                            <h3 class="font-serif-display text-2xl font-bold text-white">Pistachio Kunafa Dream Cake</h3>
+                            <p class="text-xs text-slate-200 mt-1">1kg: <span class="text-[#f5b014] font-bold">₹1450</span> &bull; 500g: <span class="text-[#f5b014] font-bold">₹790</span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Our Signature Cakes -->
+        <section id="cakes-section" class="bg-[#faf8fc] py-20 px-6 md:px-12">
+            <div class="max-w-7xl mx-auto">
+                <div class="text-center max-w-2xl mx-auto mb-10">
+                    <span class="text-xs font-extrabold tracking-widest uppercase text-[#360d4f]">Handcrafted Selection</span>
+                    <h2 class="font-serif-display text-4xl font-extrabold text-[#2d0b42] mt-2">Our Signature Cakes</h2>
+                    <p class="text-slate-600 text-sm mt-3">Choose between 1kg and 500g sizes. Click <strong class="text-slate-800">Buy Now</strong> on any cake to place your chilled delivery order right away.</p>
+                </div>
+
+                <div class="bg-white p-3 rounded-2xl shadow-sm border border-slate-100 flex flex-col md:flex-row justify-between items-center gap-4 mb-10">
+                    <div class="relative w-full md:w-96">
+                        <i class="fas fa-search absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 text-sm"></i>
+                        <input type="text" id="searchInput" oninput="renderStoreCakes()" placeholder="Search your favourite cake..." class="w-full bg-slate-50 border border-slate-200 pl-10 pr-4 py-2.5 rounded-full text-sm outline-none focus:border-[#360d4f]">
+                    </div>
+                    <div class="flex items-center gap-2 w-full md:w-auto justify-end">
+                        <button onclick="setFilter('all')" id="filter-all" class="bg-[#360d4f] text-white px-5 py-2 rounded-full text-xs font-bold transition">All Cakes</button>
+                        <button onclick="setFilter('special')" id="filter-special" class="bg-white border border-slate-200 text-slate-700 hover:border-[#360d4f] px-5 py-2 rounded-full text-xs font-bold transition">Yummy Special</button>
+                    </div>
+                </div>
+
+                <div id="cakesGrid" class="grid grid-cols-1 md:grid-cols-3 gap-8"></div>
+            </div>
+        </section>
+
+        <!-- Why Choose Yummy Cakes -->
+        <section id="why-us" class="bg-white py-20 px-6 md:px-12 border-t border-slate-100">
+            <div class="max-w-7xl mx-auto text-center">
+                <span class="text-xs font-extrabold tracking-widest uppercase text-[#d99b0c]">Unmatched Quality</span>
+                <h2 class="font-serif-display text-4xl font-extrabold text-[#2d0b42] mt-2 mb-14">Why Choose Yummy Cakes?</h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="bg-[#f8f5fc] p-8 rounded-3xl text-center border border-purple-100/60">
+                        <div class="w-14 h-14 bg-[#360d4f] text-[#f5b014] rounded-2xl flex items-center justify-center mx-auto mb-5 text-xl shadow-md">
+                            <i class="fas fa-seedling"></i>
+                        </div>
+                        <h3 class="font-serif-display font-bold text-xl text-[#2d0b42] mb-2">100% Organic Ingredients</h3>
+                        <p class="text-xs text-slate-600 leading-relaxed">Made with fresh dairy cream, organic flour, and premium Belgian chocolates without artificial preservatives.</p>
+                    </div>
+
+                    <div class="bg-[#f8f5fc] p-8 rounded-3xl text-center border border-purple-100/60">
+                        <div class="w-14 h-14 bg-[#360d4f] text-[#f5b014] rounded-2xl flex items-center justify-center mx-auto mb-5 text-xl shadow-md">
+                            <i class="fas fa-pen-nib"></i>
+                        </div>
+                        <h3 class="font-serif-display font-bold text-xl text-[#2d0b42] mb-2">Custom Text & Messages</h3>
+                        <p class="text-xs text-slate-600 leading-relaxed">Personalize your celebration order with custom messages hand-piped directly on your cake surface.</p>
+                    </div>
+
+                    <div class="bg-[#f8f5fc] p-8 rounded-3xl text-center border border-purple-100/60">
+                        <div class="w-14 h-14 bg-[#360d4f] text-[#f5b014] rounded-2xl flex items-center justify-center mx-auto mb-5 text-xl shadow-md">
+                            <i class="fas fa-truck"></i>
+                        </div>
+                        <h3 class="font-serif-display font-bold text-xl text-[#2d0b42] mb-2">Chilled Delivery</h3>
+                        <p class="text-xs text-slate-600 leading-relaxed">Delivered in temperature-controlled boxes ensuring perfect texture, freshness, and taste on arrival.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Custom Orders / Contact -->
+        <section id="contact" class="py-16 px-6 md:px-12 bg-white">
+            <div class="max-w-6xl mx-auto contact-gradient rounded-[2rem] p-8 md:p-14 text-white shadow-2xl grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+                <div class="lg:col-span-6 space-y-5">
+                    <span class="text-xs font-extrabold tracking-widest uppercase text-[#f5b014]">Custom Orders</span>
+                    <h2 class="font-serif-display text-3xl md:text-5xl font-extrabold leading-tight">Need a Custom Wedding or Event Cake?</h2>
+                    <p class="text-purple-100/85 text-sm leading-relaxed">Contact our master bakers directly for specialized multi-tier wedding cakes and custom party themes.</p>
+                    
+                    <div class="space-y-4 pt-3">
+                        <div class="flex items-center gap-4">
+                            <div class="w-10 h-10 rounded-full bg-[#f5b014] text-[#2d0b42] flex items-center justify-center font-bold text-sm">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <span class="font-semibold text-sm">+1 (800) 555-YUMMY</span>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <div class="w-10 h-10 rounded-full bg-[#f5b014] text-[#2d0b42] flex items-center justify-center font-bold text-sm">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <span class="font-semibold text-sm">support@yummycakes.com</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-6 bg-[#210633]/80 border border-white/10 p-7 rounded-3xl">
+                    <h3 class="font-serif-display text-xl font-bold mb-5">Send a Quick Message</h3>
+                    <form onsubmit="handleInquiry(event)" class="space-y-3.5">
+                        <input type="text" required placeholder="Your Name" class="w-full bg-white text-slate-800 px-4 py-3 rounded-xl text-sm outline-none">
+                        <input type="email" required placeholder="Email Address" class="w-full bg-white text-slate-800 px-4 py-3 rounded-xl text-sm outline-none">
+                        <textarea rows="3" required placeholder="Your custom requirement details..." class="w-full bg-white text-slate-800 px-4 py-3 rounded-xl text-sm outline-none"></textarea>
+                        <button type="submit" class="w-full bg-[#f5b014] hover:bg-[#e09f0c] text-[#2d0b42] font-bold py-3.5 rounded-full text-sm transition shadow-lg">
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <footer class="bg-[#240836] text-purple-200/70 text-center py-6 text-xs">
+            &copy; 2026 Yummy Cakes. Freshly Baked Happiness.
+        </footer>
+    </div>
+
+    <!-- ==================== CHECKOUT MODAL (WITH UPI & COD OPTIONS) ==================== -->
+    <div id="orderModal" class="fixed inset-0 bg-black/70 backdrop-blur-sm hidden items-center justify-center z-50 p-4">
+        <div class="bg-white text-slate-800 w-full max-w-md rounded-2xl p-6 relative shadow-2xl max-h-[90vh] overflow-y-auto">
+            <button onclick="closeOrderModal()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-800 text-xl"><i class="fas fa-times"></i></button>
+            <h3 class="font-serif-display text-2xl font-bold text-[#2d0b42]">Complete Your Order</h3>
+            <p id="orderCakeSummary" class="text-xs font-semibold text-pink-700 mt-1 mb-4"></p>
+
+            <form onsubmit="submitCustomerOrder(event)" class="space-y-3">
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 mb-1">Your Name</label>
+                    <input type="text" id="custName" required placeholder="Enter full name" class="w-full border border-slate-300 px-3.5 py-2 rounded-lg text-sm outline-none focus:border-[#360d4f]">
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 mb-1">Phone Number</label>
+                    <input type="tel" id="custPhone" required placeholder="Enter mobile number" class="w-full border border-slate-300 px-3.5 py-2 rounded-lg text-sm outline-none focus:border-[#360d4f]">
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 mb-1">Delivery Address</label>
+                    <textarea id="custAddress" rows="2" required placeholder="House name, street, landmark..." class="w-full border border-slate-300 px-3.5 py-2 rounded-lg text-sm outline-none focus:border-[#360d4f]"></textarea>
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 mb-1">Cake Message (Optional)</label>
+                    <input type="text" id="custCakeMsg" placeholder="e.g. Happy Birthday!" class="w-full border border-slate-300 px-3.5 py-2 rounded-lg text-sm outline-none focus:border-[#360d4f]">
+                </div>
+
+                <!-- Payment Method Selection (UPI or COD) -->
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 mb-1">Select Payment Method</label>
+                    <div class="grid grid-cols-2 gap-3 mb-3">
+                        <label class="flex items-center gap-2 border p-2.5 rounded-lg cursor-pointer text-xs font-bold bg-slate-50 hover:bg-slate-100">
+                            <input type="radio" name="paymentMethod" value="UPI" checked onclick="togglePaymentSection('UPI')" class="accent-pink-700">
+                            UPI Online Pay
+                        </label>
+                        <label class="flex items-center gap-2 border p-2.5 rounded-lg cursor-pointer text-xs font-bold bg-slate-50 hover:bg-slate-100">
+                            <input type="radio" name="paymentMethod" value="COD" onclick="togglePaymentSection('COD')" class="accent-pink-700">
+                            Cash on Delivery
+                        </label>
+                    </div>
+                </div>
+
+                <!-- UPI Details Box -->
+                <div id="upiSection" class="bg-purple-50 border border-purple-200 p-3.5 rounded-xl text-center space-y-2">
+                    <p class="text-xs font-bold text-[#360d4f]">Scan & Pay via UPI</p>
+                    <img id="checkoutQrImg" src="" alt="UPI QR" class="w-32 h-32 mx-auto rounded-lg border bg-white object-contain">
+                    <p class="text-xs text-slate-700">UPI ID: <strong id="checkoutUpiId" class="text-[#360d4f] select-all"></strong></p>
+                    <input type="text" id="custUtr" placeholder="Enter 12-digit UPI Transaction / UTR ID" class="w-full border border-slate-300 bg-white px-3 py-2 rounded-lg text-xs outline-none focus:border-[#360d4f]">
+                </div>
+
+                <!-- COD Details Box -->
+                <div id="codSection" class="hidden bg-amber-50 border border-amber-200 p-3.5 rounded-xl text-center space-y-1">
+                    <p class="text-xs font-bold text-amber-800"><i class="fas fa-truck mr-1"></i> Cash on Delivery Selected</p>
+                    <p class="text-[11px] text-slate-600">You can pay with cash when your freshly baked cake arrives at your doorstep.</p>
+                </div>
+
+                <button type="submit" class="w-full bg-[#f5b014] hover:bg-[#e09f0c] text-[#2d0b42] font-bold py-3 rounded-xl text-sm transition shadow-md">
+                    Confirm Order
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- ==================== ACCOUNTS MODAL ==================== -->
+    <div id="accountModal" class="fixed inset-0 bg-black/70 backdrop-blur-sm hidden items-center justify-center z-50 p-4">
+        <div class="bg-white text-slate-800 w-full max-w-md rounded-2xl p-6 relative shadow-2xl">
+            <button onclick="closeAccountModal()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-800 text-xl">
+                <i class="fas fa-times"></i>
+            </button>
+            <h2 class="text-xl font-bold text-center text-[#2d0b42] mb-5">Accounts</h2>
+            
+            <div class="grid grid-cols-2 gap-2 bg-slate-100 p-1 rounded-xl mb-5">
+                <button onclick="switchModalTab('create')" id="tabCreateBtn" class="py-2 rounded-lg font-semibold text-sm tab-active transition">Create an Account</button>
+                <button onclick="switchModalTab('login')" id="tabLoginBtn" class="py-2 rounded-lg font-semibold text-sm tab-inactive transition">Login an Account</button>
+            </div>
+
+            <form id="createForm" onsubmit="handleCreateAccount(event)" class="space-y-3.5">
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 mb-1">Name</label>
+                    <input type="text" id="regName" required class="w-full border border-slate-300 px-3.5 py-2.5 rounded-xl outline-none focus:border-[#be185d] text-sm">
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 mb-1">Email</label>
+                    <input type="email" id="regEmail" required class="w-full border border-slate-300 px-3.5 py-2.5 rounded-xl outline-none focus:border-[#be185d] text-sm">
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 mb-1">Password</label>
+                    <input type="password" id="regPassword" required class="w-full border border-slate-300 px-3.5 py-2.5 rounded-xl outline-none focus:border-[#be185d] text-sm">
+                </div>
+                <button type="submit" class="w-full bg-[#be185d] hover:bg-pink-800 text-white font-bold py-3 rounded-xl text-sm transition">Create an Account</button>
+            </form>
+
+            <form id="loginForm" onsubmit="handleLogin(event)" class="space-y-3.5 hidden">
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 mb-1">Email</label>
+                    <input type="email" id="loginEmail" required class="w-full border border-slate-300 px-3.5 py-2.5 rounded-xl outline-none focus:border-[#be185d] text-sm">
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 mb-1">Password</label>
+                    <input type="password" id="loginPassword" required class="w-full border border-slate-300 px-3.5 py-2.5 rounded-xl outline-none focus:border-[#be185d] text-sm">
+                </div>
+                <p id="authError" class="text-red-600 text-xs font-semibold hidden"></p>
+                <button type="submit" class="w-full bg-[#be185d] hover:bg-pink-800 text-white font-bold py-3 rounded-xl text-sm transition">Login an Account</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- ==================== ADMIN DASHBOARD (4 TABS) ==================== -->
+    <div id="dashboardSection" class="hidden min-h-screen bg-slate-50 flex-col">
+        <header class="bg-white border-b border-slate-200 px-6 py-4 flex justify-between items-center sticky top-0 z-30 shadow-sm">
+            <div class="flex items-center gap-3">
+                <div class="bg-pink-700 text-white p-2 rounded-lg">
+                    <i class="fas fa-birthday-cake"></i>
+                </div>
+                <div>
+                    <h2 class="font-bold text-lg text-slate-800 leading-tight">Bakery Admin Panel</h2>
+                    <p class="text-xs text-slate-500">Logged in as: <span id="displayAdminName" class="font-semibold text-pink-700"></span></p>
+                </div>
+            </div>
+            <div class="flex items-center gap-3">
+                <button onclick="backToStorefront()" class="bg-purple-100 hover:bg-purple-200 text-purple-900 px-4 py-2 rounded-lg text-sm font-semibold transition">
+                    <i class="fas fa-store mr-1"></i> View Store
+                </button>
+                <button onclick="handleLogout()" class="bg-slate-100 hover:bg-red-50 text-slate-700 hover:text-red-600 px-4 py-2 rounded-lg text-sm font-semibold transition flex items-center gap-2">
+                    <i class="fas fa-sign-out-alt"></i> Logout
+                </button>
+            </div>
+        </header>
+
+        <main class="max-w-6xl w-full mx-auto p-4 md:p-6 flex-grow">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-2 mb-6 bg-slate-200/70 p-1.5 rounded-xl">
+                <button onclick="switchAdminTab('orders')" id="btn-orders" class="tab-active py-2.5 px-4 rounded-lg font-semibold text-sm transition flex items-center justify-center gap-2">
+                    <i class="fas fa-receipt"></i> 1. Orders
+                </button>
+                <button onclick="switchAdminTab('cakes')" id="btn-cakes" class="tab-inactive py-2.5 px-4 rounded-lg font-semibold text-sm transition flex items-center justify-center gap-2">
+                    <i class="fas fa-plus-circle"></i> 2. Add / Delete Cakes
+                </button>
+                <button onclick="switchAdminTab('pricing')" id="btn-pricing" class="tab-inactive py-2.5 px-4 rounded-lg font-semibold text-sm transition flex items-center justify-center gap-2">
+                    <i class="fas fa-tags"></i> 3. Pricing & Offers
+                </button>
+                <button onclick="switchAdminTab('payment')" id="btn-payment" class="tab-inactive py-2.5 px-4 rounded-lg font-semibold text-sm transition flex items-center justify-center gap-2">
+                    <i class="fas fa-qrcode"></i> 4. Payment & QR
+                </button>
+            </div>
+
+            <!-- TAB 1: ORDERS (WITH PAYMENT METHOD DISPLAY) -->
+            <section id="tab-orders" class="bg-white rounded-xl shadow-sm border border-slate-200 p-6">
+                <div class="flex justify-between items-center mb-4">
+                    <h3 class="text-lg font-bold text-slate-800">Customer Orders & Payment Tracking</h3>
+                    <span id="orderCountBadge" class="bg-pink-100 text-pink-800 text-xs font-bold px-3 py-1 rounded-full">0 Orders</span>
+                </div>
+                <div id="ordersEmptyState" class="text-center py-12 text-slate-400">
+                    <i class="fas fa-box-open text-4xl mb-3"></i>
+                    <p class="font-medium text-slate-600">No orders received yet.</p>
+                </div>
+                <div id="ordersList" class="space-y-4"></div>
+            </section>
+
+            <!-- TAB 2: ADD / DELETE CAKES (CHOOSE FROM FILES) -->
+            <section id="tab-cakes" class="hidden space-y-6">
+                <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-6">
+                    <h3 class="text-lg font-bold text-slate-800 mb-4">Add New Cake to Storefront</h3>
+                    <form onsubmit="handleAddCake(event)" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 mb-1">Cake Name</label>
+                            <input type="text" id="newCakeName" required placeholder="e.g. Red Velvet Dream Cake" class="w-full border border-slate-300 px-3.5 py-2 rounded-lg text-sm">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 mb-1">Choose Cake Image from Files</label>
+                            <input type="file" id="newCakeImgFile" accept="image/*" required class="w-full border border-slate-300 px-3.5 py-1.5 rounded-lg text-sm file:mr-4 file:py-1 file:px-4 file:rounded-md file:border-0 file:text-xs file:font-semibold file:bg-pink-50 file:text-pink-700 hover:file:bg-pink-100">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 mb-1">1kg Price (₹)</label>
+                            <input type="number" id="newCakePrice1kg" required placeholder="1400" class="w-full border border-slate-300 px-3.5 py-2 rounded-lg text-sm">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 mb-1">500g Price (₹)</label>
+                            <input type="number" id="newCakePrice500g" required placeholder="750" class="w-full border border-slate-300 px-3.5 py-2 rounded-lg text-sm">
+                        </div>
+                        <div class="md:col-span-2 flex items-center gap-2">
+                            <input type="checkbox" id="newCakeSpecial" class="w-4 h-4 accent-pink-700">
+                            <label for="newCakeSpecial" class="text-sm font-semibold text-slate-700">Mark as "Yummy Special"</label>
+                        </div>
+                        <div class="md:col-span-2">
+                            <button type="submit" class="bg-pink-700 hover:bg-pink-800 text-white font-bold px-6 py-2.5 rounded-lg text-sm transition">
+                                <i class="fas fa-plus mr-1"></i> Add Cake
+                            </button>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-6">
+                    <h3 class="text-lg font-bold text-slate-800 mb-4">Manage Existing Cakes</h3>
+                    <div id="adminCakesList" class="grid grid-cols-1 md:grid-cols-3 gap-4"></div>
+                </div>
+            </section>
+
+            <!-- TAB 3: PRICING & OFFERS -->
+            <section id="tab-pricing" class="hidden space-y-6">
+                <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-6">
+                    <h3 class="text-lg font-bold text-slate-800 mb-4">Storewide Offer Banner</h3>
+                    <div class="flex flex-col md:flex-row gap-3">
+                        <input type="text" id="offerInput" placeholder="e.g. Flat 10% OFF on all Dream Cakes today!" class="flex-grow border border-slate-300 px-4 py-2 rounded-lg text-sm">
+                        <button onclick="saveOfferBanner()" class="bg-pink-700 hover:bg-pink-800 text-white font-bold px-5 py-2 rounded-lg text-sm">Save Offer</button>
+                        <button onclick="clearOfferBanner()" class="bg-slate-200 hover:bg-slate-300 text-slate-700 font-bold px-4 py-2 rounded-lg text-sm">Clear</button>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-6">
+                    <h3 class="text-lg font-bold text-slate-800 mb-4">Quick Price Editor</h3>
+                    <div id="adminPriceList" class="space-y-3"></div>
+                </div>
+            </section>
+
+            <!-- TAB 4: PAYMENT & QR -->
+            <section id="tab-payment" class="hidden bg-white rounded-xl shadow-sm border border-slate-200 p-6 max-w-xl">
+                <h3 class="text-lg font-bold text-slate-800 mb-4">UPI Payment & QR Code Settings</h3>
+                <div class="space-y-4">
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 mb-1">Merchant UPI ID</label>
+                        <input type="text" id="upiIdInput" class="w-full border border-slate-300 px-4 py-2.5 rounded-lg text-sm">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 mb-1">Upload QR Code Image from Files</label>
+                        <input type="file" id="qrFileInput" accept="image/*" class="w-full border border-slate-300 px-3.5 py-1.5 rounded-lg text-sm file:mr-4 file:py-1 file:px-4 file:rounded-md file:border-0 file:text-xs file:font-semibold file:bg-pink-50 file:text-pink-700 hover:file:bg-pink-100">
+                    </div>
+                    <div class="mt-2">
+                        <p class="text-xs font-semibold text-slate-500 mb-1">Current QR Preview:</p>
+                        <img id="currentQrPreview" src="" alt="QR Preview" class="w-28 h-28 object-contain border rounded-lg bg-slate-50">
+                    </div>
+                    <button onclick="savePaymentSettings()" class="bg-pink-700 hover:bg-pink-800 text-white font-bold px-6 py-2.5 rounded-lg text-sm">
+                        Save Payment Details
+                    </button>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- ==================== JAVASCRIPT ==================== -->
+    <script>
+        const defaultCakes = [
+            {
+                id: 1,
+                name: "PISTACHIO KUNAFA DREAM CAKE",
+                price1kg: 1450,
+                price500g: 790,
+                special: true,
+                img: "https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=700&q=80"
+            },
+            {
+                id: 2,
+                name: "SPANISH DELIGHT DREAM CAKE",
+                price1kg: 1350,
+                price500g: 720,
+                special: true,
+                img: "https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&w=700&q=80"
+            },
+            {
+                id: 3,
+                name: "VANILLA RASPBERRY CLASSIC",
+                price1kg: 1100,
+                price500g: 590,
+                special: false,
+                img: "https://images.unsplash.com/photo-1535141192574-5d4897c13136?auto=format&fit=crop&w=700&q=80"
+            }
+        ];
+
+        let cakes = JSON.parse(localStorage.getItem('yc_cakes')) || defaultCakes;
+        let orders = JSON.parse(localStorage.getItem('yc_orders')) || [];
+        let paymentConfig = JSON.parse(localStorage.getItem('yc_payment')) || { upiId: "yummycakes@upi", qrUrl: "" };
+        let currentFilter = 'all';
+        let selectedWeights = {};
+        let activeOrderItem = null;
+
+        function saveState() {
+            localStorage.setItem('yc_cakes', JSON.stringify(cakes));
+            localStorage.setItem('yc_orders', JSON.stringify(orders));
+            localStorage.setItem('yc_payment', JSON.stringify(paymentConfig));
+        }
+
+        function setFilter(filter) {
+            currentFilter = filter;
+            document.getElementById('filter-all').className = filter === 'all'
+                ? "bg-[#360d4f] text-white px-5 py-2 rounded-full text-xs font-bold transition"
+                : "bg-white border border-slate-200 text-slate-700 hover:border-[#360d4f] px-5 py-2 rounded-full text-xs font-bold transition";
+            document.getElementById('filter-special').className = filter === 'special'
+                ? "bg-[#360d4f] text-white px-5 py-2 rounded-full text-xs font-bold transition"
+                : "bg-white border border-slate-200 text-slate-700 hover:border-[#360d4f] px-5 py-2 rounded-full text-xs font-bold transition";
+            renderStoreCakes();
+        }
+
+        function selectWeight(id, weight) {
+            selectedWeights[id] = weight;
+            renderStoreCakes();
+        }
+
+        function renderStoreCakes() {
+            const query = document.getElementById('searchInput').value.toLowerCase();
+            const grid = document.getElementById('cakesGrid');
+            grid.innerHTML = '';
+
+            const filtered = cakes.filter(c => {
+                const matchSearch = c.name.toLowerCase().includes(query);
+                const matchFilter = currentFilter === 'all' || (currentFilter === 'special' && c.special);
+                return matchSearch && matchFilter;
+            });
+
+            filtered.forEach(cake => {
+                const weight = selectedWeights[cake.id] || '1kg';
+                const price = weight === '1kg' ? cake.price1kg : cake.price500g;
+
+                grid.innerHTML += `
+                    <div class="bg-white rounded-3xl border border-slate-100 overflow-hidden shadow-sm hover:shadow-xl transition flex flex-col">
+                        <div class="relative h-60">
+                            <img src="${cake.img}" alt="${cake.name}" class="w-full h-full object-cover">
+                            ${cake.special ? `<span class="absolute top-4 left-4 bg-red-600 text-white text-[11px] font-bold px-3 py-1 rounded-full shadow"><i class="fas fa-star mr-1"></i>Yummy Special</span>` : ''}
+                        </div>
+                        <div class="p-6 flex-grow flex flex-col justify-between">
+                            <div>
+                                <h3 class="font-extrabold text-base text-[#2d0b42] tracking-wide uppercase">${cake.name}</h3>
+                                <div class="flex gap-2 mt-3">
+                                    <button onclick="selectWeight(${cake.id}, '1kg')" class="px-3 py-1 rounded-lg text-xs font-bold border ${weight === '1kg' ? 'bg-[#360d4f] text-white border-[#360d4f]' : 'bg-slate-50 text-slate-600 border-slate-200'}">1 kg</button>
+                                    <button onclick="selectWeight(${cake.id}, '500g')" class="px-3 py-1 rounded-lg text-xs font-bold border ${weight === '500g' ? 'bg-[#360d4f] text-white border-[#360d4f]' : 'bg-slate-50 text-slate-600 border-slate-200'}">500 g</button>
+                                </div>
+                            </div>
+                            <div class="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between">
+                                <div>
+                                    <span class="text-[11px] text-slate-400 block font-semibold">Total Price</span>
+                                    <span class="text-xl font-extrabold text-[#2d0b42]">₹${price}</span>
+                                </div>
+                                <button onclick="openOrderModal(${cake.id}, '${weight}', ${price})" class="bg-[#f5b014] hover:bg-[#e09f0c] text-[#2d0b42] font-bold px-5 py-2.5 rounded-full text-xs transition shadow">
+                                    Buy Now
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            });
+        }
+
+        function togglePaymentSection(method) {
+            const upiSec = document.getElementById('upiSection');
+            const codSec = document.getElementById('codSection');
+            const utrInput = document.getElementById('custUtr');
+
+            if(method === 'UPI') {
+                upiSec.classList.remove('hidden');
+                codSec.classList.add('hidden');
+                utrInput.required = true;
+            } else {
+                upiSec.classList.add('hidden');
+                codSec.classList.remove('hidden');
+                utrInput.required = false;
+            }
+        }
+
+        function openOrderModal(cakeId, weight, price) {
+            const cake = cakes.find(c => c.id === cakeId);
+            activeOrderItem = { cakeName: cake.name, weight, price };
+            document.getElementById('orderCakeSummary').innerText = `${cake.name} (${weight}) — ₹${price}`;
+            document.getElementById('checkoutUpiId').innerText = paymentConfig.upiId;
+            const qrSrc = paymentConfig.qrUrl || `https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=upi://pay?pa=${encodeURIComponent(paymentConfig.upiId)}&pn=YummyCakes&am=${price}`;
+            document.getElementById('checkoutQrImg').src = qrSrc;
+
+            // Reset to UPI default
+            document.querySelector('input[name="paymentMethod"][value="UPI"]').checked = true;
+            togglePaymentSection('UPI');
+
+            document.getElementById('orderModal').classList.remove('hidden');
+            document.getElementById('orderModal').classList.add('flex');
+        }
+
+        function closeOrderModal() {
+            document.getElementById('orderModal').classList.add('hidden');
+            document.getElementById('orderModal').classList.remove('flex');
+        }
+
+        function submitCustomerOrder(e) {
+            e.preventDefault();
+            const payMethod = document.querySelector('input[name="paymentMethod"]:checked').value;
+            const utrVal = payMethod === 'UPI' ? document.getElementById('custUtr').value : 'Cash on Delivery (COD)';
+
+            const newOrder = {
+                id: 'ORD-' + Math.floor(1000 + Math.random() * 9000),
+                customer: document.getElementById('custName').value,
+                phone: document.getElementById('custPhone').value,
+                address: document.getElementById('custAddress').value,
+                message: document.getElementById('custCakeMsg').value || 'None',
+                paymentMethod: payMethod,
+                utr: utrVal,
+                item: activeOrderItem.cakeName,
+                weight: activeOrderItem.weight,
+                amount: activeOrderItem.price,
+                status: 'Pending Verification',
+                date: new Date().toLocaleString()
+            };
+            orders.unshift(newOrder);
+            saveState();
+            e.target.reset();
+            closeOrderModal();
+            alert(`Order Placed Successfully! Order ID: ${newOrder.id}`);
+            renderAdminData();
+        }
+
+        function handleInquiry(e) {
+            e.preventDefault();
+            alert("Thank you! Your custom cake inquiry has been sent to our master bakers.");
+            e.target.reset();
+        }
+
+        function openAccountModal() {
+            document.getElementById('accountModal').classList.remove('hidden');
+            document.getElementById('accountModal').classList.add('flex');
+        }
+        function closeAccountModal() {
+            document.getElementById('accountModal').classList.add('hidden');
+            document.getElementById('accountModal').classList.remove('flex');
+        }
+        function switchModalTab(tab) {
+            document.getElementById('authError').classList.add('hidden');
+            if (tab === 'create') {
+                document.getElementById('createForm').classList.remove('hidden');
+                document.getElementById('loginForm').classList.add('hidden');
+                document.getElementById('tabCreateBtn').className = "py-2 rounded-lg font-semibold text-sm tab-active transition";
+                document.getElementById('tabLoginBtn').className = "py-2 rounded-lg font-semibold text-sm tab-inactive transition";
+            } else {
+                document.getElementById('createForm').classList.add('hidden');
+                document.getElementById('loginForm').classList.remove('hidden');
+                document.getElementById('tabLoginBtn').className = "py-2 rounded-lg font-semibold text-sm tab-active transition";
+                document.getElementById('tabCreateBtn').className = "py-2 rounded-lg font-semibold text-sm tab-inactive transition";
+            }
+        }
+
+        function handleCreateAccount(e) {
+            e.preventDefault();
+            const user = {
+                name: document.getElementById('regName').value,
+                email: document.getElementById('regEmail').value.trim(),
+                password: document.getElementById('regPassword').value
+            };
+            localStorage.setItem('yc_admin_user', JSON.stringify(user));
+            e.target.reset();
+            openAdminPortal(user.name);
+        }
+
+        function handleLogin(e) {
+            e.preventDefault();
+            const email = document.getElementById('loginEmail').value.trim();
+            const pass = document.getElementById('loginPassword').value;
+            const savedUser = JSON.parse(localStorage.getItem('yc_admin_user'));
+            const err = document.getElementById('authError');
+
+            if (savedUser && savedUser.email === email && savedUser.password === pass) {
+                err.classList.add('hidden');
+                e.target.reset();
+                openAdminPortal(savedUser.name);
+            } else {
+                err.innerText = "Invalid email or password.";
+                err.classList.remove('hidden');
+            }
+        }
+
+        function openAdminPortal(adminName) {
+            closeAccountModal();
+            document.getElementById('displayAdminName').innerText = adminName;
+            document.getElementById('storefrontView').classList.add('hidden');
+            document.getElementById('dashboardSection').classList.remove('hidden');
+            document.getElementById('dashboardSection').classList.add('flex');
+            renderAdminData();
+        }
+
+        function backToStorefront() {
+            document.getElementById('dashboardSection').classList.add('hidden');
+            document.getElementById('dashboardSection').classList.remove('flex');
+            document.getElementById('storefrontView').classList.remove('hidden');
+            renderStoreCakes();
+        }
+
+        function handleLogout() {
+            backToStorefront();
+        }
+
+        function switchAdminTab(tab) {
+            ['orders', 'cakes', 'pricing', 'payment'].forEach(t => {
+                document.getElementById('tab-' + t).classList.add('hidden');
+                document.getElementById('btn-' + t).className = "tab-inactive py-2.5 px-4 rounded-lg font-semibold text-sm transition flex items-center justify-center gap-2";
+            });
+            document.getElementById('tab-' + tab).classList.remove('hidden');
+            document.getElementById('btn-' + tab).className = "tab-active py-2.5 px-4 rounded-lg font-semibold text-sm transition flex items-center justify-center gap-2";
+        }
+
+        function renderAdminData() {
+            document.getElementById('orderCountBadge').innerText = `${orders.length} Orders`;
+            const ordersList = document.getElementById('ordersList');
+            const emptyState = document.getElementById('ordersEmptyState');
+            ordersList.innerHTML = '';
+
+            if (orders.length === 0) {
+                emptyState.classList.remove('hidden');
+            } else {
+                emptyState.classList.add('hidden');
+                orders.forEach((o, idx) => {
+                    const payBadgeColor = o.paymentMethod === 'COD' ? 'bg-amber-100 text-amber-800' : 'bg-purple-100 text-purple-800';
+                    ordersList.innerHTML += `
+                        <div class="border border-slate-200 rounded-xl p-4 flex flex-col md:flex-row justify-between gap-4 bg-slate-50">
+                            <div class="space-y-1 text-sm">
+                                <div class="flex items-center gap-2">
+                                    <span class="font-bold text-pink-700">${o.id}</span>
+                                    <span class="text-xs ${payBadgeColor} px-2 py-0.5 rounded font-bold">Payment: ${o.paymentMethod || 'UPI'}</span>
+                                    <span class="text-xs bg-amber-100 text-amber-800 px-2 py-0.5 rounded font-bold">${o.status}</span>
+                                    <span class="text-xs text-slate-400">${o.date}</span>
+                                </div>
+                                <p class="font-bold text-slate-800">${o.item} (${o.weight}) — ₹${o.amount}</p>
+                                <p class="text-xs text-slate-600"><strong>Customer:</strong> ${o.customer} | <strong>Phone:</strong> ${o.phone}</p>
+                                <p class="text-xs text-slate-600"><strong>Address:</strong> ${o.address}</p>
+                                <p class="text-xs text-slate-600"><strong>Message:</strong> ${o.message} | <strong>Details/UTR:</strong> <span class="font-mono font-bold text-slate-800">${o.utr}</span></p>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <button onclick="markOrderDelivered(${idx})" class="bg-emerald-600 hover:bg-emerald-700 text-white px-3 py-1.5 rounded-lg text-xs font-bold">Mark Delivered</button>
+                                <button onclick="deleteOrder(${idx})" class="bg-red-100 hover:bg-red-200 text-red-700 px-3 py-1.5 rounded-lg text-xs font-bold">Delete</button>
+                            </div>
+                        </div>
+                    `;
+                });
+            }
+
+            const adminCakesList = document.getElementById('adminCakesList');
+            const adminPriceList = document.getElementById('adminPriceList');
+            adminCakesList.innerHTML = '';
+            adminPriceList.innerHTML = '';
+
+            cakes.forEach((c, idx) => {
+                adminCakesList.innerHTML += `
+                    <div class="border border-slate-200 rounded-xl p-3 flex items-center justify-between gap-3">
+                        <div class="flex items-center gap-3">
+                            <img src="${c.img}" class="w-12 h-12 rounded-lg object-cover">
+                            <div>
+                                <p class="font-bold text-xs text-slate-800">${c.name}</p>
+                                <p class="text-[11px] text-slate-500">1kg: ₹${c.price1kg} | 500g: ₹${c.price500g}</p>
+                            </div>
+                        </div>
+                        <button onclick="deleteCake(${idx})" class="text-red-600 hover:bg-red-50 p-2 rounded-lg text-xs"><i class="fas fa-trash"></i></button>
+                    </div>
+                `;
+
+                adminPriceList.innerHTML += `
+                    <div class="flex flex-wrap items-center justify-between gap-3 border-b border-slate-100 pb-3">
+                        <span class="font-bold text-sm text-slate-800 w-60">${c.name}</span>
+                        <div class="flex items-center gap-2 text-xs">
+                            <label>1kg ₹</label>
+                            <input type="number" id="p1_${c.id}" value="${c.price1kg}" class="w-24 border border-slate-300 px-2 py-1 rounded">
+                            <label>500g ₹</label>
+                            <input type="number" id="p5_${c.id}" value="${c.price500g}" class="w-24 border border-slate-300 px-2 py-1 rounded">
+                            <button onclick="updateCakePrice(${c.id})" class="bg-pink-700 text-white px-3 py-1 rounded font-bold">Update</button>
+                        </div>
+                    </div>
+                `;
+            });
+
+            document.getElementById('upiIdInput').value = paymentConfig.upiId;
+            document.getElementById('currentQrPreview').src = paymentConfig.qrUrl || `https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=upi://pay?pa=${encodeURIComponent(paymentConfig.upiId)}&pn=YummyCakes`;
+        }
+
+        function handleAddCake(e) {
+            e.preventDefault();
+            const fileInput = document.getElementById('newCakeImgFile');
+            const file = fileInput.files[0];
+
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(event) {
+                    cakes.push({
+                        id: Date.now(),
+                        name: document.getElementById('newCakeName').value.toUpperCase(),
+                        img: event.target.result,
+                        price1kg: Number(document.getElementById('newCakePrice1kg').value),
+                        price500g: Number(document.getElementById('newCakePrice500g').value),
+                        special: document.getElementById('newCakeSpecial').checked
+                    });
+                    saveState();
+                    e.target.reset();
+                    renderAdminData();
+                    renderStoreCakes();
+                    alert("Cake added successfully with uploaded image!");
+                };
+                reader.readAsDataURL(file);
+            }
+        }
+
+        function deleteCake(idx) {
+            cakes.splice(idx, 1);
+            saveState();
+            renderAdminData();
+            renderStoreCakes();
+        }
+
+        function updateCakePrice(id) {
+            const cake = cakes.find(c => c.id === id);
+            cake.price1kg = Number(document.getElementById('p1_' + id).value);
+            cake.price500g = Number(document.getElementById('p5_' + id).value);
+            saveState();
+            renderAdminData();
+            renderStoreCakes();
+            alert("Price updated!");
+        }
+
+        function saveOfferBanner() {
+            const text = document.getElementById('offerInput').value.trim();
+            if (!text) return;
+            localStorage.setItem('yc_offer', text);
+            applyOfferBanner();
+            alert("Offer banner updated!");
+        }
+
+        function clearOfferBanner() {
+            localStorage.removeItem('yc_offer');
+            document.getElementById('offerInput').value = '';
+            applyOfferBanner();
+        }
+
+        function applyOfferBanner() {
+            const offer = localStorage.getItem('yc_offer');
+            const banner = document.getElementById('offerBanner');
+            if (offer) {
+                document.getElementById('offerBannerText').innerText = offer;
+                banner.classList.remove('hidden');
+            } else {
+                banner.classList.add('hidden');
+            }
+        }
+
+        function savePaymentSettings() {
+            paymentConfig.upiId = document.getElementById('upiIdInput').value.trim();
+            const qrFile = document.getElementById('qrFileInput').files[0];
+
+            if (qrFile) {
+                const reader = new FileReader();
+                reader.onload = function(event) {
+                    paymentConfig.qrUrl = event.target.result;
+                    saveState();
+                    renderAdminData();
+                    alert("Payment details & QR code saved successfully!");
+                };
+                reader.readAsDataURL(qrFile);
+            } else {
+                saveState();
+                renderAdminData();
+                alert("Payment details saved!");
+            }
+        }
+
+        function markOrderDelivered(idx) {
+            orders[idx].status = "Delivered";
+            saveState();
+            renderAdminData();
+        }
+
+        function deleteOrder(idx) {
+            orders.splice(idx, 1);
+            saveState();
+            renderAdminData();
+        }
+
+        renderStoreCakes();
+        applyOfferBanner();
+    </script>
+</body>
+</html>
